@@ -165,26 +165,49 @@ $ npm run start
 ## 🌲프로젝트 구조
 
 ```bash
-src
- ┣ api
- ┃ ┣ axios.js
- ┃ ┗ function.js
- ┣ components
- ┃ ┣ Error.js
- ┃ ┣ Header.js
- ┃ ┣ IssueItemLabel.js
- ┃ ┣ IssueList.js
- ┃ ┗ Loading.js
- ┣ hooks
- ┃ ┗ useGetIssues.js
- ┣ pages
- ┃ ┣ IssueItemPage.js
- ┃ ┗ MainPage.js
- ┣ utils
- ┃ ┗ storageFunction.js
- ┣ .DS_Store
- ┣ App.js
- ┣ index.css
- ┣ index.js
- ┗ routes.jsx
+src/
+├── api/
+│   ├── issue.ts
+│   ├── octokit.ts
+│   └── repoData.ts
+├── components/
+│   ├── AdBanner/
+│   │   └── AdBanner.tsx
+│   ├── Issue/
+│   │   ├── IssueAuthor.tsx
+│   │   ├── IssueBodyContent.tsx
+│   │   ├── IssueItem.tsx
+│   │   └── IssueList.tsx
+│   ├── Markdown/
+│   │   └── MarkdownRenderer.tsx
+│   └── UI/
+│       ├── Error/
+│       │   └── ErrorComponent.tsx
+│       ├── Loading/
+│       │   ├── LoadingComponent.tsx
+│       │   ├── SkeletonComponent.tsx
+│       │   └── SkeletonItem.tsx
+│       └── Button.tsx
+├── constants/
+│   ├── color.ts
+│   └── style.ts
+├── hooks/
+│   ├── useError.ts
+│   ├── useInfiniteScroll.ts
+│   ├── useIssueData.ts
+│   ├── useLoading.ts
+│   └── useRepoData.ts
+├── laout/
+│   ├── Header.tsx
+│   └── PageLayout.tsx
+├── pages/
+│   ├── ErrorPage.tsx
+│   ├── IssueDetailPage.tsx
+│   └── IssueListPage.tsx
+├── utils/
+│   └── convertDate.ts
+├── App.tsx
+├── index.css
+├── index.tsx
+└── routes.tsx
 ```
