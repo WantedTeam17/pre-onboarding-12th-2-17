@@ -70,8 +70,9 @@ const IssueTitleContainer = styled.div`
 
   & > span:first-child {
     font-weight: bold;
-    width: 50px;
     text-align: right;
+    width: 70px;
+    text-align: center;
   }
 
   & > span:nth-child(2) {
