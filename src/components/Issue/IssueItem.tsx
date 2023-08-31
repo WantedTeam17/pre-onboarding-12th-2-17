@@ -3,6 +3,7 @@ import { colors } from "../../constants/colors";
 import { Endpoints } from "@octokit/types";
 import { Link } from "react-router-dom";
 import { AiOutlineComment } from "react-icons/ai";
+import convertDateToKorean from "../../utils/convertDate";
 
 type IssueItemProps = {
   issue: Endpoints["GET /repos/{owner}/{repo}/issues"]["response"]["data"][number];
@@ -27,9 +28,7 @@ const IssueItem = ({ issue }: IssueItemProps) => {
         </IssueHeaderContainer>
         <IssueDetailsContainer>
           <span>✍🏻 작성자: {issue.user?.login}</span>
-          <span>
-            🗓️ 작성일: {new Date(issue.created_at).toLocaleDateString("ko-KR")}
-          </span>
+          <span>🗓️ 작성일:{convertDateToKorean(issue.created_at)}</span>
         </IssueDetailsContainer>
       </IssueLayout>
     </Link>

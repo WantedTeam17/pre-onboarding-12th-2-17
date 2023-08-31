@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { AiOutlineComment } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
+import convertDateToKorean from "../../utils/convertDate";
 
 type AuthorProps = {
   avatar_url: string;
@@ -29,7 +30,7 @@ const IssueAuthor = ({
       )}
       <AuthorInfo>
         <AuthorName>✍🏻 {author.login}</AuthorName>
-        <CreationDate>🗓️ {new Date(created_at).toLocaleDateString()}</CreationDate>
+        <CreationDate>🗓️ {convertDateToKorean(created_at)}</CreationDate>
       </AuthorInfo>
       <CommentCountWrap>
         <AiOutlineComment size={28}></AiOutlineComment>
