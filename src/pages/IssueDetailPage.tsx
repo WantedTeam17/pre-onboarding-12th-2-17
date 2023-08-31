@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useIssueData } from '../hooks/useIssueData';
-import IssueAuthor from '../components/Issue/IssueAuthor';
-import styled from 'styled-components';
-import IssueBodyContent from '../components/Issue/IssueBodyContent';
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useIssueData } from "../hooks/useIssueData";
+import IssueAuthor from "../components/Issue/IssueAuthor";
+import styled from "styled-components";
+import IssueBodyContent from "../components/Issue/IssueBodyContent";
 
 const IssueDetailPage = () => {
   const { id } = useParams<{ id: string }>();
