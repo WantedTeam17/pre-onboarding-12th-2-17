@@ -3,6 +3,7 @@ import { useIssueData } from '../../hooks/useIssueData';
 import IssueItem from './IssueItem';
 import AdBanner from '../AdBanner/AdBanner';
 import LoadingComponent from '../UI/Loading/LoadingComponent';
+import styled from 'styled-components';
 
 const IssueList: React.FC = () => {
   const { issues, loading, loadMoreIssues, hasMore } = useIssueData();
@@ -34,10 +35,10 @@ const IssueList: React.FC = () => {
   return (
     <div>
       {issues.map((issue, index) => (
-        <div key={issue.id} ref={index === issues.length - 1 ? lastIssueRef : undefined}>
+        <IssueItemBox key={issue.id} ref={index === issues.length - 1 ? lastIssueRef : undefined}>
           {index % 4 === 0 && index !== 0 && <AdBanner />}
           <IssueItem issue={issue} />
-        </div>
+        </IssueItemBox>
       ))}
       {loading && <LoadingComponent />}
     </div>
@@ -45,3 +46,13 @@ const IssueList: React.FC = () => {
 };
 
 export default IssueList;
+
+const IssueItemBox = styled.div`
+  width: 1200px;
+  
+  margin: 0 auto;
+
+  @media (max-width: 1250px) {
+    width: 90%;
+  }
+`;

@@ -53,6 +53,13 @@ const IssueHeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+
+  @media (max-width: 1250px) {
+    height: auto; /* 높이를 자동으로 설정하여 내용에 맞게 조절합니다. */
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
 `;
 
 const IssueTitleContainer = styled.div`
@@ -86,7 +93,6 @@ const IssueDetailsContainer = styled.div`
 
 const RightContent = styled.div`
   display: flex;
-  align-items: center;
   gap: 10px;
-  width: 80px;
+  width: 100px;
 `;
