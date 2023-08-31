@@ -153,11 +153,11 @@ $ npm run start
 
 ### 이슈 목록 페이지
 
-![image](https://github.com/Akows/wanted-pre-onboarding-12th-team17-week2/assets/54127322/49d36e2d-793d-4837-8ddf-71c8cdd70d48)
+![이슈 목록 페이지](https://github.com/WantedTeam17/pre-onboarding-12th-2-17/assets/88275787/34d0c0db-4905-4034-a1b2-dc1d7ddb06cf)
 
 ### 이슈 상세 페이지
 
-![image](https://github.com/Akows/wanted-pre-onboarding-12th-team17-week2/assets/54127322/31a4d72b-6c89-4148-b625-4809c2fea5e8)
+![이슈 상세 페이지](https://github.com/WantedTeam17/pre-onboarding-12th-2-17/assets/88275787/8e4050dd-9c8e-42dc-a511-2e7c0bb1295e)
 
 <br/>
 <br/>
