@@ -1,10 +1,18 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const useLoading = () => {
-  const [loading, setLoading] = useState<boolean>(false);
-  const [loadingMessage, setLoadingMessage] = useState<string>('Loading...');
+  const [initialLoading, setInitialLoading] = useState<boolean>(false);
+  const [moreDataLoading, setMoreDataLoading] = useState<boolean>(false);
+  const [loadingMessage, setLoadingMessage] = useState<string>("Loading...");
 
-  return { loading, setLoading, loadingMessage, setLoadingMessage };
+  return {
+    initialLoading,
+    setInitialLoading,
+    moreDataLoading,
+    setMoreDataLoading,
+    loadingMessage,
+    setLoadingMessage,
+  };
 };
 
 export default useLoading;
