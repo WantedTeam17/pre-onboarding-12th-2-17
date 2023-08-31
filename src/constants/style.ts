@@ -55,6 +55,10 @@ export const MarkDownContainer = styled.div`
     color: rgb(59 130 246);
   }
 
+  & p > img {
+    max-width: 100%;
+  }
+
   & pre,
   & code {
     display: block;
