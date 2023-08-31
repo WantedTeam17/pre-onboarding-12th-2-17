@@ -27,4 +27,10 @@ const AdBannerContainer = styled.div`
   padding: 10px;
   gap: 20px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    h3 {
+      display: none;
+    }
+  }
 `;
