@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { AiOutlineComment } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
 
 type AuthorProps = {
   avatar_url: string;
@@ -11,17 +13,28 @@ interface IssueAuthorProps {
   commentCount: number;
 }
 
-const IssueAuthor = ({ author, created_at, commentCount }: IssueAuthorProps) => {
+const IssueAuthor = ({
+  author,
+  created_at,
+  commentCount,
+}: IssueAuthorProps) => {
   if (!author) return null;
 
   return (
     <AuthorLayout>
-      <AuthorImage src={author.avatar_url} alt={author.login} />
+      {author.avatar_url ? (
+        <AuthorImage src={author.avatar_url} alt={author.login} />
+      ) : (
+        <CgProfile></CgProfile>
+      )}
       <AuthorInfo>
-        <AuthorName>{author.login}</AuthorName>
-        <CreationDate>{new Date(created_at).toLocaleDateString()}</CreationDate>
+        <AuthorName>✍🏻 {author.login}</AuthorName>
+        <CreationDate>🗓️ {new Date(created_at).toLocaleDateString()}</CreationDate>
       </AuthorInfo>
-      <CommentCount>코멘트: {commentCount}</CommentCount>
+      <CommentCountWrap>
+        <AiOutlineComment size={28}></AiOutlineComment>
+        <span>{commentCount}</span>
+      </CommentCountWrap>
     </AuthorLayout>
   );
 };
@@ -56,7 +69,10 @@ const CreationDate = styled.span`
   color: #666;
 `;
 
-const CommentCount = styled.span`
+const CommentCountWrap = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 5px;
   margin-left: auto;
   font-weight: bold;
 `;

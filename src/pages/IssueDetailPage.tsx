@@ -38,4 +38,12 @@ const IssueDetailLayout = styled.div`
   padding: 20px;
   border: 1px solid #e1e4e8;
   border-radius: 6px;
+
+  width: 1200px;
+
+  margin: 0 auto;
+
+  @media (max-width: 1250px) {
+    width: 85%;
+  }
 `;
