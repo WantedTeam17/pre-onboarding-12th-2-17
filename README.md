@@ -30,12 +30,14 @@
 - 실행을 위해 다음 Node version이 필요합니다.
   [Node.js 18.17.0](https://nodejs.org/ca/blog/release/v18.17.0/)
 
-- 실행 방법 (2가지 중 택 1)
+- 실행 방법 (3가지 중 택 1)
   > 1. 배포 링크를 통한 접속
   > 2. ZIP 파일 다운로드 및 압축 풀기 후 코드 에디터로 실행
-
-```
-$ npm i
+  > 3. 아래 키워드를 통한 실행
+```bash
+$ git clone https://github.com/WantedTeam17/pre-onboarding-12th-2-17.git
+$ cd pre-onboarding-12th-2-17
+$ npm install
 $ npm run start
 ```
 
