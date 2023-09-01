@@ -20,7 +20,7 @@
 
 ## ✔️ 배포
 
-- `Google Firebase` [🔗Link](https://pre-onboarding-2-17-deploy.web.app/)
+- `AWS S3` [🔗Link](http://pre-onboarding-12th-2-17.s3-website.ap-northeast-2.amazonaws.com/)
 
 <br/>
 <br/>
@@ -51,6 +51,7 @@ $ npm run start
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=Visual%20Studio%20Code&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white)
 ![Git hub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-gray?style=for-the-badge&logo=github)
 ![Source Tree](https://img.shields.io/badge/SOURCE%20TREE-blue?style=for-the-badge&logo=sourcetree)
 
 #### Config
