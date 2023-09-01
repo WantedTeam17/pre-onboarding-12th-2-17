@@ -1,28 +1,34 @@
-import styled from 'styled-components';
-import { colors } from '../../constants/colors';
-import { Endpoints } from '@octokit/types';
-import { Link } from 'react-router-dom';
+import styled from "styled-components";
+import { colors } from "../../constants/colors";
+import { Endpoints } from "@octokit/types";
+import { Link } from "react-router-dom";
+import { AiOutlineComment } from "react-icons/ai";
+import convertDateToKorean from "../../utils/convertDate";
 
 type IssueItemProps = {
-  issue: Endpoints['GET /repos/{owner}/{repo}/issues']['response']['data'][number];
+  issue: Endpoints["GET /repos/{owner}/{repo}/issues"]["response"]["data"][number];
 };
 
 const IssueItem = ({ issue }: IssueItemProps) => {
   return (
-    <Link to={`/issue/${issue.number}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+    <Link
+      to={`/issue/${issue.number}`}
+      style={{ textDecoration: "none", color: "inherit" }}
+    >
       <IssueLayout>
         <IssueHeaderContainer>
           <IssueTitleContainer>
-            <span>#{issue.number}</span>
-            <span>{issue.title}</span>
+            <span>[#{issue.number}]</span>
+            <span>&nbsp;{issue.title}</span>
           </IssueTitleContainer>
           <RightContent>
-            <span>코멘트: {issue.comments}</span>
+            <AiOutlineComment size={25}></AiOutlineComment>
+            <span> {issue.comments}</span>
           </RightContent>
         </IssueHeaderContainer>
         <IssueDetailsContainer>
-          <span>작성자: {issue.user?.login}</span>
-          <span>작성일: {new Date(issue.created_at).toLocaleDateString('ko-KR')}</span>
+          <span>✍🏻 작성자: {issue.user?.login}</span>
+          <span>🗓️ 작성일:{convertDateToKorean(issue.created_at)}</span>
         </IssueDetailsContainer>
       </IssueLayout>
     </Link>
@@ -32,7 +38,7 @@ const IssueItem = ({ issue }: IssueItemProps) => {
 export default IssueItem;
 
 const IssueLayout = styled.div`
-  padding: 10px 0;
+  padding: 12px 0;
   border-bottom: 1px solid #ccc;
   width: 100%;
 
@@ -46,6 +52,13 @@ const IssueHeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+
+  @media (max-width: 1250px) {
+    height: auto; /* 높이를 자동으로 설정하여 내용에 맞게 조절합니다. */
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
 `;
 
 const IssueTitleContainer = styled.div`
@@ -57,8 +70,9 @@ const IssueTitleContainer = styled.div`
 
   & > span:first-child {
     font-weight: bold;
-    width: 50px;
     text-align: right;
+    width: 70px;
+    text-align: center;
   }
 
   & > span:nth-child(2) {
@@ -80,5 +94,5 @@ const IssueDetailsContainer = styled.div`
 const RightContent = styled.div`
   display: flex;
   gap: 10px;
-  width: 80px;
+  width: 100px;
 `;

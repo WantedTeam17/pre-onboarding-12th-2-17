@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useIssueData } from '../hooks/useIssueData';
-import IssueAuthor from '../components/Issue/IssueAuthor';
-import styled from 'styled-components';
-import IssueBodyContent from '../components/Issue/IssueBodyContent';
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useIssueData } from "../hooks/useIssueData";
+import IssueAuthor from "../components/Issue/IssueAuthor";
+import styled from "styled-components";
+import IssueBodyContent from "../components/Issue/IssueBodyContent";
 
 const IssueDetailPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -38,4 +38,12 @@ const IssueDetailLayout = styled.div`
   padding: 20px;
   border: 1px solid #e1e4e8;
   border-radius: 6px;
+
+  width: 1200px;
+
+  margin: 0 auto;
+
+  @media (max-width: 1250px) {
+    width: 85%;
+  }
 `;

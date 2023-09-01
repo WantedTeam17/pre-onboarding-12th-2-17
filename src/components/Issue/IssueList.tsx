@@ -1,20 +1,21 @@
-import React, { useRef, useEffect, useCallback } from 'react';
-import { useIssueData } from '../../hooks/useIssueData';
-import IssueItem from './IssueItem';
-import AdBanner from '../AdBanner/AdBanner';
-import LoadingComponent from '../UI/Loading/LoadingComponent';
+import { styled } from "styled-components";
+import React, { useRef, useEffect, useCallback } from "react";
+import { useIssueData } from "../../hooks/useIssueData";
+import IssueItem from "./IssueItem";
+import AdBanner from "../AdBanner/AdBanner";
+import SkeletonComponent from "../UI/Loading/SkeletonComponent";
 
 const IssueList: React.FC = () => {
-  const { issues, loading, loadMoreIssues, hasMore } = useIssueData();
+  const { issues, moreDataLoading, loadMoreIssues, hasMore } = useIssueData();
 
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   const lastIssueRef = useCallback(
     (node: HTMLDivElement | null) => {
-      if (loading) return;
+      if (moreDataLoading) return;
       if (observerRef.current) observerRef.current.disconnect();
 
-      observerRef.current = new IntersectionObserver(entries => {
+      observerRef.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && hasMore) {
           loadMoreIssues();
         }
@@ -22,7 +23,7 @@ const IssueList: React.FC = () => {
 
       if (node) observerRef.current.observe(node);
     },
-    [loading, hasMore, loadMoreIssues],
+    [moreDataLoading, hasMore, loadMoreIssues]
   );
 
   useEffect(() => {
@@ -34,14 +35,27 @@ const IssueList: React.FC = () => {
   return (
     <div>
       {issues.map((issue, index) => (
-        <div key={issue.id} ref={index === issues.length - 1 ? lastIssueRef : undefined}>
+        <IssueItemBox
+          key={issue.id}
+          ref={index === issues.length - 1 ? lastIssueRef : undefined}
+        >
           {index % 4 === 0 && index !== 0 && <AdBanner />}
           <IssueItem issue={issue} />
-        </div>
+        </IssueItemBox>
       ))}
-      {loading && <LoadingComponent />}
+      {moreDataLoading && <SkeletonComponent />}
     </div>
   );
 };
 
 export default IssueList;
+
+const IssueItemBox = styled.div`
+  width: 1200px;
+
+  margin: 0 auto;
+
+  @media (max-width: 1250px) {
+    width: 90%;
+  }
+`;
